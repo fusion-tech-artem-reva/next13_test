@@ -15,7 +15,7 @@ const DNSPage = (props: Props) => {
       <h1>Hello</h1>
       <Suspense fallback={<Loading1 />}>
         {/* @ts-expect-error Server Component */}
-        <InfoComponent />
+        <InfoComponent id={props.searchParams?.id}/>
       </Suspense>
       <Suspense fallback={<Loading2 />}>
         {/* @ts-expect-error Server Component */}

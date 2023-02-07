@@ -11,7 +11,7 @@ const InfoComponent = async (props: Props) => {
 
   return (
     <ul>
-      <li key={response.id}>{response.name}</li>)
+      <li key={response.id}>{response.name}</li>
     </ul>
   );
 };
