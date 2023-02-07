@@ -4,7 +4,11 @@ import InfoComponent from './InfoComponent';
 import { PageWrapper } from './PageWrapper';
 import { PostList } from './PostList';
 
-const DNSPage = () => {
+type Props = {
+  searchParams?: { id?: string }
+}
+
+const DNSPage = (props: Props) => {
   console.log('>>>>')
   return (
     <PageWrapper>

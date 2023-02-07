@@ -1,13 +1,17 @@
 import React from 'react';
 
-const InfoComponent = async () => {
+type Props = {
+  id?: string;
+}
+
+const InfoComponent = async (props: Props) => {
   await new Promise((res) => setTimeout(() => res(1), 12000))
-  const data = await fetch('https://jsonplaceholder.typicode.com/users', { method: 'GET' });
-  const response = await data.json() as { id: number; name: string }[];
+  const data = await fetch(`https://jsonplaceholder.typicode.com/users/${props.id}`, { method: 'GET' });
+  const response = await data.json() as { id: number; name: string };
 
   return (
     <ul>
-      {response.map((item) => <li key={item.id}>{item.name}</li>)}
+      <li key={response.id}>{response.name}</li>)
     </ul>
   );
 };
