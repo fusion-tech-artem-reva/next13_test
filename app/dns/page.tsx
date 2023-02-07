@@ -4,14 +4,18 @@ import InfoComponent from './InfoComponent';
 import { PageWrapper } from './PageWrapper';
 import { PostList } from './PostList';
 
-const DNSPage = () => {
+type Props = {
+  searchParams?: { id?: string }
+}
+
+const DNSPage = (props: Props) => {
   console.log('>>>>')
   return (
     <PageWrapper>
       <h1>Hello</h1>
       <Suspense fallback={<Loading1 />}>
         {/* @ts-expect-error Server Component */}
-        <InfoComponent />
+        <InfoComponent id={props.searchParams?.id}/>
       </Suspense>
       <Suspense fallback={<Loading2 />}>
         {/* @ts-expect-error Server Component */}
